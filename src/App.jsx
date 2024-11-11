@@ -13,12 +13,18 @@ function App() {
     setBookmark(totalBookmarks)
   }
 
+  const [readingTime,setReadingTime] = useState(0)
+
+  const handleReadingTime = (time) => {
+    setReadingTime(readingTime + time)
+  }
+
   return (
     <div className='max-w-6xl mx-auto my-5'>
       <Header></Header>
       <div className='md:flex justify-between mt-5'>
-        <Blogs handleBookmark={handleBookmark}></Blogs>
-        <Bookmarks bookmarks = {bookmarks}></Bookmarks>
+        <Blogs handleBookmark={handleBookmark} handleReadingTime = {handleReadingTime}></Blogs>
+        <Bookmarks bookmarks = {bookmarks} readingTime = {readingTime}></Bookmarks>
       </div>
     </div>
   )
