@@ -6,17 +6,20 @@ import Bookmarks from './components/Bookmarks/Bookmarks'
 import Header from './components/Header/Header'
 
 function App() {
-  const [bookmarks,setBookmark] = useState([])
+  const [bookmarks,setBookmarks] = useState([])
 
   const handleBookmark = blog => {
     const totalBookmarks = [...bookmarks,blog]
-    setBookmark(totalBookmarks)
+    setBookmarks(totalBookmarks)
   }
 
   const [readingTime,setReadingTime] = useState(0)
 
-  const handleReadingTime = (time) => {
+  const handleReadingTime = (id,time) => {
     setReadingTime(readingTime + time)
+    // remove title from bookmark
+    const remainingBookmark = bookmarks.filter(bookmark => bookmark.id !== id)
+    setBookmarks(remainingBookmark)
   }
 
   return (
