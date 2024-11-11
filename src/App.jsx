@@ -7,9 +7,9 @@ import Header from './components/Header/Header'
 function App() {
 
   return (
-    <div className='mx-10'>
+    <div className='max-w-6xl mx-auto my-5'>
       <Header></Header>
-      <div className='md:flex  my-0 justify-between'>
+      <div className='md:flex justify-between mt-5'>
         <Blogs></Blogs>
         <Bookmarks></Bookmarks>
       </div>
