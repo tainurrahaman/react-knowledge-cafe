@@ -6,10 +6,11 @@ import Bookmarks from './components/Bookmarks/Bookmarks'
 import Header from './components/Header/Header'
 
 function App() {
-  const [bookmark,setBookmark] = useState([])
+  const [bookmarks,setBookmark] = useState([])
 
-  const handleBookmark = () => {
-    console.log('added bookmark')
+  const handleBookmark = blog => {
+    const totalBookmarks = [...bookmarks,blog]
+    setBookmark(totalBookmarks)
   }
 
   return (
@@ -17,7 +18,7 @@ function App() {
       <Header></Header>
       <div className='md:flex justify-between mt-5'>
         <Blogs handleBookmark={handleBookmark}></Blogs>
-        <Bookmarks></Bookmarks>
+        <Bookmarks bookmarks = {bookmarks}></Bookmarks>
       </div>
     </div>
   )
